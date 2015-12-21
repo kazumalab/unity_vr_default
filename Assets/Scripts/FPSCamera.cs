@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class FPSCamera : MonoBehaviour {
 	public Transform headChild;
 	public GameObject ball;
 	private bool shooting = false;
 	private float bulletsPerSecond = 14.0f;
+	public Text score;
+
 	// Use this for initialization
 	void Start () {
 		Cursor.lockState = CursorLockMode.Locked;
@@ -14,6 +17,7 @@ public class FPSCamera : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+		score.text = "Score : " + BallMove.point;
 		shooting = false;
 		Vector2 mouseSpeed = new Vector2 (Input.GetAxis ("Mouse X"), Input.GetAxis ("Mouse Y"));
 		//ここは頭の動きを見る、パソコン用
